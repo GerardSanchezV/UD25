@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,22 +19,22 @@ public class FabControlles {
 	@Autowired
 	FabricanteServiceImpl fabricanteServiceImpl;
 	
-	@GetMapping("/Fabricantes")
+	@GetMapping("/fabricante")
 	public List<Fabricante> listarFabricantes(){
 		return fabricanteServiceImpl.listarFabricantes();
 		
 	}
-	@PostMapping("/Fabricantes")
+	@PostMapping("/fabricante")
 	public Fabricante salvarCliente(@RequestBody Fabricante fabricante) {
 		return fabricanteServiceImpl.guardarFabricante(fabricante);
 	}
-	@GetMapping("/Fabricantes")
+	@GetMapping("/fabricante/{id}")
 	public Fabricante fabricanteXID(@PathVariable(name="id")int id) {
 		Fabricante fabricante_xid= new Fabricante();
 		fabricante_xid=fabricanteServiceImpl.fabricanteXID(id);
 		return fabricante_xid;
 	}
-	@GetMapping("/Fabricante/{id}")
+	@PutMapping("/fabricante/{id}")
 	public Fabricante actualizarFabricante(@PathVariable(name="id")int id,@RequestBody Fabricante fabricante) {
 			Fabricante fabricante_seleccionado= new Fabricante();
 			Fabricante fabricante_actualizado= new Fabricante();
@@ -43,7 +44,7 @@ public class FabControlles {
 			return fabricante_actualizado;
 			
 	}
-	@DeleteMapping("/Fabricante{id}")
+	@DeleteMapping("/fabricantes/{id}")
 	public void eliminarFabricante(@PathVariable(name = "id")int id) {
 		fabricanteServiceImpl.eliminarFabricante(id);
 	}
