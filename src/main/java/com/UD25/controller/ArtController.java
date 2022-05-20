@@ -29,7 +29,6 @@ public class ArtController {
 	
 	@PostMapping("/articulos")
 	public Articulo salvarArticulo(@RequestBody Articulo articulo) {
-		
 		return articuloServiceImpl.guardarArticulo(articulo);
 	}
 	
