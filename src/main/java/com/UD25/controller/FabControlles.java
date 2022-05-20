@@ -45,8 +45,8 @@ public class FabControlles {
 			return fabricante_actualizado;
 			
 	}
-	@DeleteMapping("/fabricantes/{id}")
-	public void eliminarFabricante(@PathVariable(name = "id")int id) {
+	@DeleteMapping("/fabricante/{id}")
+	public void eliminarFabricante(@PathVariable(name="id")int id) {
 		fabricanteServiceImpl.eliminarFabricante(id);
 	}
 	
